@@ -43,7 +43,8 @@ $(document).ready(function(){
                 "width":"830px",
                 "height":"500px",
                 "margin-top":"40px",
-                "border-radius":"3px"
+                "border-radius":"3px",
+                "box-shadow":"0 0 20px rgba(255, 255, 255, 0.8)"
              });
 
         //Remove the img from the display holder
@@ -66,8 +67,8 @@ $(document).ready(function(){
         "width": "120px",
         "height": "100px",
         "margin": "5px",
-        "box-shadow":"2px 2px 2px rgb(218,219,219)",
-        "border-radius":"3px"
+        "border-radius":"2px",
+      
     });
 
     $("h2").css({
@@ -75,6 +76,7 @@ $(document).ready(function(){
         "font-weight": "bolder",
         "color": "white",
         "text-align": "center"
+
     });
 
 });
