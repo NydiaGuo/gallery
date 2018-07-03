@@ -4,17 +4,22 @@ $(document).ready(function(){
     body.append("<div class='container-fluid'><div class='text-center' id='imagesHolder'></div></div>");
     body.css("background-color","black");
 
-    body.append("<div class='container-fluid text-center' id='displayImg'><button id='close'>close</button></div>");
+ 
 
 
     var images = ["images/1.png", "images/2.jpg", "images/3.jpg", "images/4.jpg", "images/5.jpg", "images/6.jpg", "images/7.jpg", "images/8.jpg"];
 
     for(var i = 0; i < images.length; i++) {
+
+        body.append("<div class='container-fluid text-center' id='displayImg'></div>");
+
         var image = "<img src=" + images[i] + "></img>";
 
         $("#imagesHolder").append(image);
+        
 
         $("img").click(function(){
+            $("#displayImg").append("<button id='close'>close</button>");
             $("#displayImg").append(this);
 
             $(this).css({
@@ -46,15 +51,12 @@ $(document).ready(function(){
         "display":"block"
     });
 
-    $("button").css({
-        "display":"none"
-    });
-
     $("img").css({
         "width": "120px",
         "height": "100px",
         "margin": "5px"
     });
+
 
     $("h2").css({
         "margin": "20px",
