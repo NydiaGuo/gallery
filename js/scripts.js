@@ -4,30 +4,28 @@ $(document).ready(function(){
     body.append("<div class='container-fluid'><div class='text-center' id='imagesHolder'></div></div>");
     body.css("background-color","black");
 
- 
-
+    body.append("<div class='container-fluid text-center' id='displayImg'></div>");
 
     var images = ["images/1.png", "images/2.jpg", "images/3.jpg", "images/4.jpg", "images/5.jpg", "images/6.jpg", "images/7.jpg", "images/8.jpg"];
 
+    //creating a holder for each image and close button
     for(var i = 0; i < images.length; i++) {
 
-        body.append("<div class='container-fluid text-center' id='displayImg'></div>");
-
-        var image = "<img src=" + images[i] + "></img>";
+        var image = "<a href=" +images[i]+ "><img src=" + images[i] + "></a>";
 
         $("#imagesHolder").append(image);
-        
+        $("a").addClass("openImages");
 
-        $("img").click(function(){
-            $("#displayImg").append("<button id='close'>close</button>");
-            $("#displayImg").append(this);
+    }
 
-            $(this).css({
-                "width":"830px",
-                "height": "500px",
-                "margin-top":"40px"
-             });
+    //Triggers click function when clicking on each img
+    $(".openImages").on('click', function(e){
 
+            e.preventDefault();
+            var addAttr = $(this).attr("href");
+
+            $("#displayImg").append("<img class='pic' src=" + addAttr + "><button id='close'>close</button>");
+            
             $("button").css({
                 "display":"inline",
                 "color": "#fff",
@@ -40,23 +38,33 @@ $(document).ready(function(){
                 "position":"absolute"
             });
 
-            $("#displayImg").click(function(){
-                $(this).remove();
-            });
-        });
+            $(".pic").css({
+                "width":"830px",
+                "height":"500px",
+                "margin-top":"40px"
+             });
 
-    }
+        //Remove the img from the display holder
+        body.on('click', '#close', function(){
+            $(this).remove();
+            $(".pic").remove();
+        
+        });
+    });
+            
+    $("button").css({
+        "display":"none"
+    });
 
     $("#imagesHolder").css({
         "display":"block"
     });
 
-    $("img").css({
+    $("#imagesHolder img").css({
         "width": "120px",
         "height": "100px",
         "margin": "5px"
     });
-
 
     $("h2").css({
         "margin": "20px",
