@@ -9,7 +9,7 @@ $(document).ready(function(){
     var images = ["images/1.png", "images/2.jpg", "images/3.jpg", "images/4.jpg", "images/5.jpg", "images/6.jpg", 
                 "images/7.jpg", "images/8.jpg", "images/9.jpg","images/10.jpg"];
 
-    //creating a holder for each image and close button
+    //Generating a tag and img tag for each images on the page
     for(var i = 0; i < images.length; i++) {
 
         var image = "<a href=" +images[i]+ "><img src=" + images[i] + "></a>";
@@ -25,8 +25,12 @@ $(document).ready(function(){
             e.preventDefault();
             var addAttr = $(this).attr("href");
 
-            $("#displayImg").append("<img class='pic' src=" + addAttr + "><button id='close'>close</button>");
+            $("#displayImg").html("<img class='pic' src=" + addAttr + "><button id='close'>close</button>");
             
+            $("#displayImg").css({
+                "display":"block"
+            });
+
             $("button").css({
                 "display":"inline",
                 "color": "#fff",
@@ -34,25 +38,35 @@ $(document).ready(function(){
                 "border-radius":"3px",
                 "background":"rgba(0,0,0,0.1)",
                 "padding":"5px",
-                "right":"380px",
-                "top":"250px",
+                "right":"320px",
+                "top":"100px",
                 "position":"absolute"
             });
 
             $(".pic").css({
-                "width":"830px",
-                "height":"500px",
-                "margin-top":"40px",
-                "border-radius":"3px",
-                "box-shadow":"0 0 20px rgba(255, 255, 255, 0.8)"
+                "width":"930px",
+                "height":"600px",
+                "margin-top":"80px"
              });
 
         //Remove the img from the display holder
         body.on('click', '#close', function(){
             $(this).remove();
             $(".pic").remove();
-        
+            $("#displayImg").css({
+                "display":"none"
+            });
         });
+    });
+
+    $("#displayImg").css({
+        "background-color":"rgba(0,0,0,0.8)",
+        "position":"fixed",
+        "top":"0",
+        "left":"0",
+        "width":"100%",
+        "height":"100%",
+        "display":"none"
     });
             
     $("button").css({
@@ -66,9 +80,7 @@ $(document).ready(function(){
     $("#imagesHolder img").css({
         "width": "120px",
         "height": "100px",
-        "margin": "5px",
-        "border-radius":"2px",
-      
+        "margin": "5px"
     });
 
     $("h2").css({
