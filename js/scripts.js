@@ -7,7 +7,7 @@ $(document).ready(function(){
     body.append("<div class='container-fluid text-center' id='displayImg'></div>");
 
     var images = ["images/1.png", "images/2.jpg", "images/3.jpg", "images/4.jpg", "images/5.jpg", "images/6.jpg", 
-                "images/7.jpg", "images/8.jpg", "images/9.jpg","images/10.jpg"];
+                "images/7.jpg", "images/8.jpg", "images/9.jpg","images/10.jpg","images/11.jpg", "images/12.jpg"];
 
     //Generating a tag and img tag for each images on the page
     for(var i = 0; i < images.length; i++) {
@@ -78,8 +78,8 @@ $(document).ready(function(){
     });
 
     $("#imagesHolder img").css({
-        "width": "120px",
-        "height": "100px",
+        "width": "320px",
+        "height": "200px",
         "margin": "5px"
     });
 
